@@ -15,7 +15,7 @@ blue = (.3, .3, 1)
 green = (.5, 1, 0)
 
 # draw board
-matrix = grid(n=3, ds=1, gridcolor=green)
+matrix = grid(n=3, ds=1, gridcolor=blue)
 
 # get list of winning combinations
 wins = win()
@@ -25,7 +25,7 @@ bars = {}
 balls = {}
 for x in arange(-1, 2, 1):
     for z in arange(-1, 2, 1):
-        cyl = box(pos=(x,-.06,z), axis=(0,.12,0), radius=0.5, visible=1, opacity=0.1, color=green)
+        cyl = box(pos=(x,-.06,z), axis=(0,.12,0), radius=0.5, visible=1, opacity=0.1, color=blue)
         bars[(x, 0, z)] = cyl
 
 visbar=None
@@ -52,7 +52,7 @@ while len(balls) < 3*3:
         if bcolor==red:
             b = ring(pos=point, radius=0.3, color=bcolor, thickness=0.1, axis=(0,1,0))
         else:
-            b = sphere(pos=point, radius=0.3, color=bcolor)
+            b = cone(pos=point, radius=0.3, color=bcolor, axis=(0,1,0))
         bpoint=(round(b.x), round(0), round(b.z))
         if not(bpoint in balls): # not already a ball there
             b.pos=bpoint
