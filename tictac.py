@@ -1,3 +1,5 @@
+import sys
+print (sys.path)
 from visual import *
 from tictacdat import *
 
@@ -23,6 +25,16 @@ wins = win()
 # select field
 bars = {}
 balls = {}
+
+#texts
+textWinnerRed = text(text='Red wins!', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.red);
+textWinnerRed.visible =0;
+textWinnerBlue = text(text='Blue wins', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.blue);
+textWinnerBlue.visible = 0;
+textGameOver = text(text='Game over', align='center', pos=(0, 1.5, 0), depth=-0.5, color=color.green);
+textGameOver.visible = 0;
+
+
 for x in arange(-1, 2, 1):
     for z in arange(-1, 2, 1):
         cyl = box(pos=(x,-.06,z), axis=(0,.12,0), radius=0.5, visible=1, opacity=0.1, color=blue)
@@ -76,25 +88,45 @@ while len(balls) < 3*3:
                         print("***********")
                         print(" Red wins!")
                         print("***********")
-                        winnerText = text(text='Red wins!', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.red)
-                    else:
+                        #winnerText = text(text='Red wins!', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.red)
+                        textWinnerRed.visible  = 1;
+                        winnerText = textWinnerRed;
+                    elif ccolor==blue:
                         print("***********")
                         print(" Blue wins!")
                         print("***********")
-                        winnerText = text(text='Blue wins', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.blue)
+                        #winnerText = text(text='Blue wins', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.blue)
+                        textWinnerBlue.visible = 1;
+                        winnerText = textWinnerBlue;
+
                     for flash in arange(0,10):
                         balls[a[0]].color=(1,1,1)
                         balls[a[1]].color=(1,1,1)
                         balls[a[2]].color=(1,1,1)
-                        rate(10)
+                        rate(1)
                         balls[a[0]].color=ccolor
                         balls[a[1]].color=ccolor
                         balls[a[2]].color=ccolor
-                        rate(10)
+                        rate(1)
                     break
         if not (won==None):
+            if not 'winnerText' in vars():
+                print("***********")
+                print(" draw")
+                print("***********")
+                winnerText = text(text='draw', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.green)
             break
 
-text(text='Game over', align='center', pos=(0, 1.5, 0), depth=-0.5, color=color.green)
+#text(text='Game over', align='center', pos=(0, 1.5, 0), depth=-0.5, color=color.green)
+textGameOver.visible = 1;
 print("game over")
-winnerText.visible = 0
+if 'winnerText' in vars():
+    winnerText.visible = 0
+print("1")
+rate(100)
+print("2")
+rate(100)
+print("3")
+rate(100)
+print("4")
+
