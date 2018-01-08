@@ -31,7 +31,7 @@ textWinnerRed = text(text='Red wins!', pos=(0, 1.5, 0), align='center', depth=-0
 textWinnerRed.visible =0;
 textWinnerBlue = text(text='Blue wins', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.blue);
 textWinnerBlue.visible = 0;
-textGameOver = text(text='Game over', align='center', pos=(0, 1.5, 0), depth=-0.5, color=color.green);
+
 textGameOver.visible = 0;
 
 
@@ -117,11 +117,6 @@ while len(balls) < 3*3:
                 winnerText = text(text='draw', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.green)
             break
 
-#text(text='Game over', align='center', pos=(0, 1.5, 0), depth=-0.5, color=color.green)
-textGameOver.visible = 1;
-print("game over")
-if 'winnerText' in vars():
-    winnerText.visible = 0
 print("1")
 rate(100)
 print("2")
