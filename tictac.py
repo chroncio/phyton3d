@@ -32,7 +32,6 @@ textWinnerRed.visible =0;
 textWinnerBlue = text(text='Blue wins', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.blue);
 textWinnerBlue.visible = 0;
 
-textGameOver.visible = 0;
 
 
 for x in arange(-1, 2, 1):
@@ -91,7 +90,7 @@ while len(balls) < 3*3:
                         #winnerText = text(text='Red wins!', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.red)
                         textWinnerRed.visible  = 1;
                         winnerText = textWinnerRed;
-                    elif ccolor==blue:
+                    else:
                         print("***********")
                         print(" Blue wins!")
                         print("***********")
@@ -116,12 +115,3 @@ while len(balls) < 3*3:
                 print("***********")
                 winnerText = text(text='draw', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.green)
             break
-
-print("1")
-rate(100)
-print("2")
-rate(100)
-print("3")
-rate(100)
-print("4")
-
