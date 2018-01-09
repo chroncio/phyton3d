@@ -6,10 +6,11 @@ from tictacdat import *
 # scene settings
 scene.width=800
 scene.height=800
-scene.title="TicTac 3D"
-scene.center = (-.5, -.5, -.5)
-scene.forward = (-.5, -.7, -.7)
+scene.title="KiK"
+scene.center = (-1, -0.5, -1)
+scene.forward = (-1, -.7, -.7)
 scene.scale = (.2, .2, .2)
+
 
 # colors
 red = (1, 0, 0)
@@ -27,9 +28,9 @@ bars = {}
 balls = {}
 
 #texts
-textWinnerRed = text(text='Red wins!', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.red);
+textWinnerRed = text(text='Red wins!', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.red, axis=(1,0,-0.7));
 textWinnerRed.visible =0;
-textWinnerBlue = text(text='Blue wins', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.blue);
+textWinnerBlue = text(text='Blue wins', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.blue, axis=(1,0,-0.7));
 textWinnerBlue.visible = 0;
 
 
@@ -87,14 +88,12 @@ while len(balls) < 3*3:
                         print("***********")
                         print(" Red wins!")
                         print("***********")
-                        #winnerText = text(text='Red wins!', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.red)
                         textWinnerRed.visible  = 1;
                         winnerText = textWinnerRed;
                     else:
                         print("***********")
                         print(" Blue wins!")
                         print("***********")
-                        #winnerText = text(text='Blue wins', pos=(0, 1.5, 0), align='center', depth=-0.5, color=color.blue)
                         textWinnerBlue.visible = 1;
                         winnerText = textWinnerBlue;
 
